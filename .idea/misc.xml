@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/03-servlet" />
+    <file type="web" url="file://$PROJECT_DIR$/04-springmvc-anno" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/01-spring-anno/pom.xml" />
+        <option value="$PROJECT_DIR$/02-spring-anno/pom.xml" />
+        <option value="$PROJECT_DIR$/03-servlet3.0/pom.xml" />
+        <option value="$PROJECT_DIR$/03-servlet/pom.xml" />
+        <option value="$PROJECT_DIR$/springmvc-anno/pom.xml" />
+        <option value="$PROJECT_DIR$/04-springmvc-anno/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

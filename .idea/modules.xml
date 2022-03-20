@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-spring-anno/01-spring-anno.iml" filepath="$PROJECT_DIR$/01-spring-anno/01-spring-anno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-spring-anno/02-spring-anno.iml" filepath="$PROJECT_DIR$/02-spring-anno/02-spring-anno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-servlet/03-servlet.iml" filepath="$PROJECT_DIR$/03-servlet/03-servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-springmvc-anno/04-springmvc-anno.iml" filepath="$PROJECT_DIR$/04-springmvc-anno/04-springmvc-anno.iml" />
+    </modules>
+  </component>
+</project>

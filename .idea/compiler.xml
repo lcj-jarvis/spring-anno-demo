@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="03-servlet" />
+        <module name="04-springmvc-anno" />
+        <module name="01-spring-anno" />
+        <module name="02-spring-anno" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="01-spring-anno" target="1.8" />
+      <module name="02-spring-anno" target="1.8" />
+      <module name="03-servlet" target="1.8" />
+      <module name="04-springmvc-anno" target="1.8" />
+      <module name="springmvc-anno" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

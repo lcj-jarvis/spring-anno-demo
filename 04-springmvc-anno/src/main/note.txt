@@ -1,0 +1,45 @@
+1、web容器在启动的时候，会扫描每个jar包下的META-INF/services/javax.servlet.ServletContainerInitializer
+2、加载这个文件指定的类SpringServletContainerInitializer
+3、spring的应用会一启动会加载感兴趣的WebApplicationInitializer接口下的所有组件
+4、并且为WebApplicationInitializer类型的组件创建对象（组件不是接口，也不是抽象类型）
+   （1）AbstractContextLoaderInitializer：
+           创建根容器：createRootApplicationContext();
+           为根容器创建监听器：new ContextLoaderListener(rootAppContext);
+   （2）AbstractDispatcherServletInitializer：
+           先调用AbstractContextLoaderInitializer的onStartup(servletContext)方法创建根容器
+           创建Web的ioc容器： createServletApplicationContext();
+           创建DispatcherServlet：createDispatcherServlet(servletAppContext);
+           ServletRegistration.Dynamic registration = servletContext.addServlet(servletName, dispatcherServlet);
+           registration.setLoadOnStartup(1); //一启动就加载
+           registration.addMapping(getServletMappings());//映射请求
+           registration.setAsyncSupported(isAsyncSupported());//是否支持异步请求
+           registerServletFilter(servletContext, filter);//注册过滤器
+
+           /**
+           	 * Specify filters to add and map to the {@code DispatcherServlet}.
+           	 * @return an array of filters or {@code null}
+           	 * @see #registerServletFilter(ServletContext, Filter)
+           	 */
+           	@Nullable
+           	protected Filter[] getServletFilters() {
+           		return null;
+           	}
+            子类可以重写这个方法添加过滤器。
+
+   （3）AbstractAnnotationConfigDispatcherServletInitializer
+          （1）创建根容器：createRootApplicationContext()
+               getRootConfigClasses();先要传入一个（spring）配置类
+               AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+          （2）创建web的ioc容器：createServletApplicationContext()
+               Class<?>[] configClasses = getServletConfigClasses(); 先要传入一个（springmvc）配置类
+               AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+总结：
+   已注解方式来启动SpringMVC，继承AbstractAnnotationConfigDispatcherServletInitializer。
+   实现抽象的方法getRootConfigClasses();getServletConfigClasses();来指定配置类的信息
+============================================================================================
+定制SpringMVC
+（1）@EnableWebMvc:开启SpringMVC定制配置功能（就是相当于在配置类中写以前SpringMVC配置文件的内容）
+     详细参考这里
+     https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-default-servlet-handler
+（2）配置组件（视图解析器，视图映射，注解驱动，静态资源映射，拦截器。。。）
+     让SpringMVC的配置类去实现WebMvcConfigurer或者继承WebMvcConfigurerAdapter

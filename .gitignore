@@ -1,0 +1,5 @@
+# Project exclude paths
+/01-spring-anno/target/
+/02-spring-anno/target/
+/03-servlet/target/
+/04-springmvc-anno/target/
